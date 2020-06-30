@@ -1,0 +1,7 @@
+6.30 上午
+1. 实现了commit push进GitHub
+   在push时总是报错
+   最后发下是没有先pull，下载最新的版本
+   两端不一样
+2. 安装了Python
+3. 安装了Pycharm
