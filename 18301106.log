@@ -16,3 +16,8 @@
    学习了vim命令，掌握了基本命令
 2.小组讨论确立下一步小组分工，学习了时间序列、ARIMA模型
    在pycharm中导入了python包，正在尝试处理数据
+
+7.3
+1.在spark中进行数据清洗
+2.通过pip命令安装flask包，导入pycharm
+3.学习flask，启动了一个flask程序，正在学习配置flask路由
