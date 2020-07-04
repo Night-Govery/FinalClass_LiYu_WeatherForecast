@@ -21,3 +21,8 @@
 1.在spark中进行数据清洗
 2.通过pip命令安装flask包，导入pycharm
 3.学习flask，启动了一个flask程序，正在学习配置flask路由
+
+7.4
+1.配置flask路由，确立了新的分工
+2.安装myeclipse，完成配置及tomcat配置
+3.学习javaspring，正在尝试完成用户登录的前端部分
