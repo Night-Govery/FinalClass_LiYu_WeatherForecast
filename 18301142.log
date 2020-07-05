@@ -29,3 +29,8 @@ python处理类处理Json
 ARIMA模型建立完毕，生成了预测模型
 完成Json格式处理
 python类的创建
+
+7.5
+完成数据传输
+与小组讨论flask框架
+优化arima模型
