@@ -26,3 +26,11 @@
 1.配置flask路由，确立了新的分工
 2.安装myeclipse，完成配置及tomcat配置
 3.学习javaspring，正在尝试完成用户登录的前端部分
+
+7.5
+1.新建了一个java web项目
+2.完成spring mvc项目配置
+   在网上逐一下载springmvc依赖的jar包，并配置了路径导入包  
+   修改web.xml文件，添加springmvc-servlet.xml配置文件
+3.正在学习写用户登录，添加controller类，写了welcome界面的jsp文件
+4.为了方便小组对接，用python+flask搭建也是一个选择
