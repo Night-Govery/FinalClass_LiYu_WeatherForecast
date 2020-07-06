@@ -34,3 +34,11 @@
    修改web.xml文件，添加springmvc-servlet.xml配置文件
 3.正在学习写用户登录，添加controller类，写了welcome界面的jsp文件
 4.为了方便小组对接，用python+flask搭建也是一个选择
+
+7.6
+1.小组明确前进方向，全部采用flask框架，开始转向html写前端网页
+2.完成登录、注册界面的设计
+   解决了注册界面验证码的添加
+   学会通过css调整模块的样式，添加背景和页面布局，调用fontawesome库
+   html之前的跳转
+   
