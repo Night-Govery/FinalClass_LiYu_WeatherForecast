@@ -18,6 +18,8 @@ body{
   }
   .login .form .item{
     margin-top: 15px;
+    	color: #fff;
+
   }
   .login .form .item input{
     width: 200px;
