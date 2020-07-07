@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+<link  rel="stylesheet"  href="./static/Css/Index.css">
+<link  rel="stylesheet"  href="./static/font-awesome-4.7.0/css/font-awesome.css">
+</head>
+<body>
+    <div class="login">
+            <h1> 注册</h1>
+        <div class="form">
+       <div class="item">
+        <i class="fa fa-user-circle" aria-hidden="true"></i>
+        <input type=text placeholder="UserName" >
+       </div>
+       <div class="item">
+       <i class="fa fa-key" aria-hidden="true"></i>
+                <input type="password" id="pwd1" placeholder="Password1"/>
+            <i class="fa fa-eye" onclick="showhide1()" id="eye1"></i>
+       </div>
+            <div class="item">
+        <i class="fa fa-key" aria-hidden="true"></i>
+                <input type="password" id="pwd2" placeholder="Password2"/>
+            <i class="fa fa-eye" onclick="showhide2()" id="eye2"></i>
+       </div>
+            <div class="item">
+        <i class="fa fa-child" aria-hidden="true"></i>
+        <input type=text placeholder="code" >
+       </div>
+        <div class="item">
+             <style>
+div {
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+	-webkit-user-select: none; /*禁止用户选中文字*/
+}
+</style>
+</head>
+<body>
+	<div id="code_box">Af3D</div>
+
+	<script>
+    var code_box = document.getElementById("code_box");
+
+    function refreshCode() {
+
+    	//62个字符 随机选择4位
+        var code = '0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM',
+            char = '',
+            result = '';
+
+        for (var i = 0; i < 4; i++) {
+
+            //随机选择一位  （0,61） 写出0到61的随机的索引数字
+            var code_index = Math.round(Math.random()*61);
+            //得到随机的索引  取出随机地字符
+            var char = code[code_index];
+            //随机取出的字符 存在几个相同重复的问题 ，而且对于字母，不能区分大小写。
+            // 避免重复的思路是：取出字符之后,和最后的result对比一下，看看里边是不是已经存在了，如果存在本次循环就终止，进行下一次
+            if (result.toUpperCase().indexOf(char.toUpperCase()) > -1)
+            //indexOf() == -1 说明结果里边没有要找的字符 那么 > -1 就是 里边有重复的字符
+            {
+            	i --;
+                //为什么会 --？ 因为如果条件成立，那么本轮循环就结束进行下一轮循环（自然i就加1了），那么本轮本应该取出的字符就没有了
+                //到最后会少一个字符 缺席
+                continue;//终止本轮循环 进行下一轮
+            }
+            result += char;
+        }
+        code_box.innerHTML = result;
+    }
+    //点击事件
+    code_box.onclick = refreshCode;
+</script>
+       </div>
+        </div>
+        <div class="button">
+        <a href="http://localhost:5000/login">
+            <button>注册</button>
+        </a>
+            alert("ok");
+    </div>
+
+        <script type="text/javascript">
+            var eye1 = document.getElementById("eye1");
+            var pwd1 = document.getElementById("pwd1");
+
+            function showhide1(){
+
+                    if (pwd1.type == "password") {
+                        pwd1.type = "text";
+                            eye1.className='fa fa-eye-slash'
+                    }else {
+                        pwd1.type = "password";
+                        eye1.className='fa fa-eye'
+                    }
+            }
+    </script>
+
+        <script type="text/javascript">
+            var eye2 = document.getElementById("eye2");
+            var pwd2 = document.getElementById("pwd2");
+
+            function showhide2(){
+
+                    if (pwd2.type == "password") {
+                        pwd2.type = "text";
+                            eye2.className='fa fa-eye-slash'
+                    }else {
+                        pwd2.type = "password";
+                        eye2.className='fa fa-eye'
+                    }
+            }
+    </script>
+</body>
+</html>
