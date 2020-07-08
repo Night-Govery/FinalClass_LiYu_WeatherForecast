@@ -23,7 +23,7 @@
        </div>
             <div class="item">
         <i class="fa fa-key" aria-hidden="true"></i>
-                <input type="password" id="pwd2" placeholder="确认密码" name="Password1"/>
+                <input type="password" id="pwd2" placeholder="确认密码" name="Password2"/>
             <i class="fa fa-eye" onclick="showhide2()" id="eye2"></i>
        </div>
             <div class="item">
@@ -76,10 +76,16 @@ div {
     }
     //点击事件
     code_box.onclick = refreshCode;
+    let myVar = result
+    $.post('http://127.0.0.1:5000/register', {myVar}, function(){
+    })
 </script>
        </div>
         </div>
-        <div class="button"><button onclick="MsgBox()">注册</button>
+        <div class="button"><button>注册</button>
+            {% for foo in get_flashed_messages() %}
+                {{ foo }}
+            {% endfor %}
     </div>
 
         <script type="text/javascript">
@@ -113,17 +119,6 @@ div {
                     }
             }
     </script>
-
-
-<script language="javascript">
-function MsgBox() //声明标识符
-{
-
-    alert("输入错误"); //弹出对话框
-    isRight=False
-}
-</script>
-<!--引用JS代码以达到弹出对话框目的 结束-->
         </form>
 </body>
 </html>
