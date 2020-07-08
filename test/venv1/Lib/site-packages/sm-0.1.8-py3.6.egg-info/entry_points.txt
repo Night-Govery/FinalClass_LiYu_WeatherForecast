@@ -1,0 +1,3 @@
+[console_scripts]
+sm = sm.main:main
+
