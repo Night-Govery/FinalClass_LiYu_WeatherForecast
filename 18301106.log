@@ -48,3 +48,10 @@
    href/onclick
    需要添加flask装饰器
 3.用户注册时需要输入两遍密码
+
+7.8
+1.实现了prediction网页
+   新增echarts图表，目前暂为柱状图，从flask接受数组数据
+   增加日期选择框，默认浏览器自带
+2.学习flask，前端传输到flask的办法
+   ajax传输到flask、form action
