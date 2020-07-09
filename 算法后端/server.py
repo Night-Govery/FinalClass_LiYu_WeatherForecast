@@ -12,38 +12,39 @@ import struct
 from arima import Begin
 
 class serverrr():
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    port = 8000
-    server.bind(("127.0.0.1",port))
-    server.listen(5)
+    while 1:
+        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        port = 8000
+        server.bind(("127.0.0.1",port))
+        server.listen(5)
 
-    #打印出目前监听的端口
-    print('[+] Listen on %d' % port)
-    sock,addr = server.accept()
-    print('[+]connect successfully')
-    #解码接收到的日期变量
-    date = sock.recv(1024)
-    date = date.decode()
-    print(date)
+        #打印出目前监听的端口
+        print('[+] Listen on %d' % port)
+        sock,addr = server.accept()
+        print('[+]connect successfully')
+        #解码接收到的日期变量
+        date = sock.recv(1024)
+        date = date.decode()
+        print(date)
 
-    '''
-    调用ARIMA方法，传入date参数并生成json文件准备传输
-    '''
-    b=Begin(date)
-    b.begin()
+        '''
+        调用ARIMA方法，传入date参数并生成json文件准备传输
+        '''
+        b=Begin(date)
+        b.begin()
 
 
-    # 定义所发送的文件
-    # 所发送的文件需在项目文件夹里
-    filepath = "predict.json"
-    size = os.stat(filepath).st_size
-    f = struct.pack("l", os.stat(filepath).st_size)
-    sock.send(f)
+        # 定义所发送的文件
+        # 所发送的文件需在项目文件夹里
+        filepath = "predict.json"
+        size = os.stat(filepath).st_size
+        f = struct.pack("l", os.stat(filepath).st_size)
+        sock.send(f)
 
-    img = open(filepath, "rb")
-    sock.sendall(img.read())
-    img.close()
+        img = open(filepath, "rb")
+        sock.sendall(img.read())
+        img.close()
 
-    data = sock.recv(1024)
-    print(data.decode())
-    sock.close()
+        data = sock.recv(1024)
+        print(data.decode())
+        sock.close()
