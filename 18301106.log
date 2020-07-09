@@ -53,5 +53,13 @@
 1.实现了prediction网页
    新增echarts图表，目前暂为柱状图，从flask接受数组数据
    增加日期选择框，默认浏览器自带
-2.学习flask，前端传输到flask的办法
-   ajax传输到flask、form action
+2.学习flask
+   ajax传输到flask、form
+
+7.9
+1.改进预测界面
+   修改echarts柱状图，改为有两个y值
+   完成flask传递数组，读入echarts data
+2.完成管理员界面
+   学习增加table表格
+   通过循环读入数据库内用户数据
