@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>注册</title>
 <link  rel="stylesheet"  href="./static/Css/Index.css">
 <link  rel="stylesheet"  href="./static/font-awesome-4.7.0/css/font-awesome.css">
 </head>
 <body>
-<form method="post">
+<form method="POST">
     <div class="login">
             <h1> 注册</h1>
         <div class="form">
@@ -43,10 +43,8 @@ div {
 </head>
 <body>
 	<div id="code_box">Af3D</div>
-
 	<script>
     var code_box = document.getElementById("code_box");
-
     function refreshCode() {
 
     	//62个字符 随机选择4位
@@ -76,9 +74,6 @@ div {
     }
     //点击事件
     code_box.onclick = refreshCode;
-    let myVar = result
-    $.post('http://127.0.0.1:5000/register', {myVar}, function(){
-    })
 </script>
        </div>
         </div>
