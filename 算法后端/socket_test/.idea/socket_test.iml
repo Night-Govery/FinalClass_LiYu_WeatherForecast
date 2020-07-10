@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../Lib/site-packages">
+      <sourceFolder url="file://$MODULE_DIR$/../Lib/site-packages" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+    </content>
+    <content url="jar://$MODULE_DIR$/../spark/python/lib/py4j-0.10.9-src.zip!/" />
+    <content url="jar://$MODULE_DIR$/../spark/python/lib/pyspark.zip!/">
+      <sourceFolder url="jar://$MODULE_DIR$/../spark/python/lib/pyspark.zip!/" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
