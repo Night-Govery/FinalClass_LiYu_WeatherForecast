@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人设置</title>
+<link  rel="stylesheet"  href="./Css/Index.css">
+<link  rel="stylesheet"  href="font-awesome-4.7.0/css/font-awesome.css">
+</head>
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:570px;
+    width:120px;
+    float:left;
+    padding:5px;
+}
+#section {
+    width:700px;
+    float:left;
+    padding:10px;
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;
+}
+</style>
+</head>
+<body>
+
+<body background="\static\images\background2.jpg">
+<div id="header">
+<h1>个人设置</h1>
+</div>
+
+<div id="nav">
+用户信息<br>
+修改密码<br>
+注销账号<br>
+</div>
+
+<div id="section">
+<h2>用户信息</h2>
+<form action="">
+用户名:  {{ user_name }}
+<br><br>
+用户类型:  VIP用户
+<br>
+</form>
+<h2>修改密码</h2>
+<p>
+修改密码以防账号被盗
+</p>
+<form method="post">
+旧密码:<br>
+<input type="text" name="password" >
+<br>
+新密码:<br>
+<input type="text" name="change_password1">
+<br>
+确认新密码:<br>
+<input type="text" name="change_password2">
+<br><button type="submit" formaction="{{ url_for('changepassworduser',change_user=user.name) }}">修改密码</button>
+<br>{% for foo in get_flashed_messages() %} {{ foo }} {% endfor %}
+</form>
+
+<h2>注销账号</h2>
+<p>
+你将永久失去对当前账号的使用权，包括你的VIP权益
+</p>
+<a href="{{ url_for('deleteuseruser',change_user=user.name) }}"><button type="button">永久注销这个账号</button></a>
+</div>
+
+<div id="footer">
+7/9测试
+</div>
+
+</body>
+</html>
