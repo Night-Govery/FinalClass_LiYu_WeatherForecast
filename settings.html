@@ -8,27 +8,50 @@
 <link  rel="stylesheet"  href="font-awesome-4.7.0/css/font-awesome.css">
 </head>
 <style>
+body{
+   background-image:url(./Img/login.jpg);
+    background-size: 100% auto;
+}
+
 #header {
-    background-color:black;
+     background: #00000060;
     color:white;
+
     text-align:center;
     padding:5px;
 }
 #nav {
     line-height:30px;
-    background-color:#eeeeee;
-    height:570px;
-    width:120px;
+    height:auto;
+    width:100px;
     float:left;
+    padding:5px;
+        color:white;
+
+
+}
+#right {
+    line-height:30px;
+    height:auto;
+    width:100px;
+    float:right;
     padding:5px;
 }
 #section {
-    width:700px;
-    float:left;
+background-image:url(./Img/hhh.jpg);
+    background-size: 100% auto;
+    float:center
+       margin-top: 20px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    width:1200px;
+    float:right;
     padding:10px;
+    text-align: center;
 }
+
 #footer {
-    background-color:black;
+     background: #00000060;
     color:white;
     clear:both;
     text-align:center;
@@ -38,49 +61,108 @@
 </head>
 <body>
 
-<body background="C:\Users\Eumenides\PycharmProjects\Prediction\static\image\background2.jpg">
 <div id="header">
 <h1>个人设置</h1>
 </div>
-
+<div id="right">
+</div>
 <div id="nav">
-用户信息<br>
-修改密码<br>
-注销账号<br>
+<button type="button"
+style=" margin-top: 20px;
+       width: 90px;
+       color: white;
+       height: 30px;
+       border: 0px;
+       background: #ffffff90;
+       background-image: linear-gradient(120deg, #db3125 0%, #578bc3 100%);
+       border-radius: 15px;">用户信息</button><br>
+<button type="button"
+style=" margin-top: 20px;
+       width: 90px;
+       color: white;
+       height: 30px;
+       border: 0px;
+       background: #ffffff90;
+       background-image: linear-gradient(120deg, #db3125 0%, #578bc3 100%);
+       border-radius: 15px;">修改密码</button><br>
+<button type="button"
+style=" margin-top: 20px;
+       width: 90px;
+       color: white;
+       height: 30px;
+       border: 0px;
+       background: #ffffff90;
+       background-image: linear-gradient(120deg, #db3125 0%, #578bc3 100%);
+       border-radius: 15px;">注销账号</button><br>
 </div>
 
 <div id="section">
 <h2>用户信息</h2>
-用户名： 142857
+<form action="">
+用户名:  {{ user_name }}
 <br><br>
-用户类型： VIP用户
+用户类型:  VIP用户
 <br>
+</form>
 <h2>修改密码</h2>
 <p>
 修改密码以防账号被盗
 </p>
-<form action="">
+<form method="post">
 旧密码:<br>
-<input type="text" name="Original" >
+<input type="text" name="password" >
 <br>
 新密码:<br>
-<input type="text" name="New">
+<input type="text" name="change_password1">
 <br>
 确认新密码:<br>
-<input type="text" name="Confirm">
+<input type="text" name="change_password2">
+<br><button type="submit" formaction="{{ url_for('changepassworduser',change_user=user.name) }}"
+style="margin-top: 5px;width: 100px;
+        padding:8px;
+        background-color: #428bca;
+        border-color: #357ebd;
+        color: #fff;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px; /* future proofing */
+        -khtml-border-radius: 10px; /* for old Konqueror browsers */
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        font-weight: 900;
+        font-size:125%  ">修改密码</button>
+<br>{% for foo in get_flashed_messages() %} {{ foo }} {% endfor %}
 </form>
-<br><button type="Changep">修改密码</button>
 
 <h2>注销账号</h2>
 <p>
 你将永久失去对当前账号的使用权，包括你的VIP权益
 </p>
-<button type="Logout">永久注销这个账号</button>
+<a href="{{ url_for('deleteuseruser',change_user=user.name) }}"><button type="button"
+style="margin-top: 5px;width: 100px;
+        padding:8px;
+        background-color: #428bca;
+        border-color: #357ebd;
+        color: #fff;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px; /* future proofing */
+        -khtml-border-radius: 10px; /* for old Konqueror browsers */
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid transparent;
+        font-weight: 900;
+        font-size:125%  ">注销账号</button></a>
 </div>
-
-<div id="footer">
-7/10测试
+<div id="footer" style="background: #00000060;
+padding:5px;
+text-align:center;
+color:white;
+bottom:0px;
+width: 100%;
+">
+copyright
 </div>
-
 </body>
 </html>
