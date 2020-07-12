@@ -113,6 +113,7 @@ def register():
         username = request.form.get('UserName')
         password1 = request.form.get('Password1')
         password2 = request.form.get('Password2')
+        code = request.form.get('code')
         if username and password1 and password2:
             #两次输入密码一样
             if password1 == password2:
@@ -121,7 +122,7 @@ def register():
                 if not user:
                     try:
                         #将用户添加到数据库
-                        user = User(name=username,password=password1,role_id=role1.id)
+                        user = User(name=username,password=password1,role_id=2)
                         db.session.add(user)
                         db.session.commit()
                         #返回主页
@@ -150,11 +151,13 @@ def prediction():
     if request.method == 'POST':
         #获取日期
         date = request.form.get('date')
+        area = request.form.get('select')
         Date=date.split("-")
         year = int(Date[0])
         month = int(Date[1])
         day = int(Date[2])
         date = str(month) + '#' + str(day)
+        trans_data = area + '#' + date
     #如果没有登录，就返回登录页
     if "username" not in session:
         return redirect(url_for('login'))
@@ -175,7 +178,7 @@ def prediction():
         if permission_list['search']:
             # 请求数据
             if date != "null":
-                clienttt(date)
+                clienttt(trans_data)
                 # 读取数据
                 with open('static/data/receive.json', 'r') as f:
                     data = json.load(f)
@@ -193,7 +196,6 @@ def prediction():
         for i in range(7):
             data_min.append(weather_data[i])
             data_max.append(weather_data[i+7])
-        print(weather_data)
         return render_template('prediction.html',userID=userID,data_min=data_min,data_max=data_max,permission_list=permission_list)
 
 #更改密码页面
@@ -311,6 +313,132 @@ def createuseradmin():
                         flash('同样的账户名存在！')
                 else:
                     flash('输入框不能为空！')
+            else:
+                return redirect(url_for('logout'))
+    return redirect(url_for('settingadmin',user_name=userID))
+
+
+#角色权限板块
+@app.route('/changepermissionadmin/<rolename>', methods=['GET', 'POST'])
+def changepermissionadmin(rolename):
+    if request.method == 'POST':
+        per_forecast = request.form.get('permission_forecast')
+        per_search = request.form.get('permission_search')
+        per_master = request.form.get('permission_master')
+
+        if 'True' in per_forecast:
+            per_forecast=True
+        else:
+            per_forecast=False
+        if 'True' in per_search:
+            per_search=True
+        else:
+            per_search=False
+        if 'True' in per_master:
+            per_master=True
+        else:
+            per_master=False
+
+        # 如果没有登录，就返回登录页
+        if "username" not in session:
+            return redirect(url_for('login'))
+        # 如果登录，就读取cookie并前往页面
+        else:
+            userID = session.get('username')
+            user = User.query.filter(User.name == userID).first()
+            role = Role.query.filter(Role.id == user.role_id).first()
+            createrole = Role.query.filter(Role.name == rolename).first()
+            if role.permission_master:
+                try:
+                    createrole.permission_forecast=per_forecast
+                    createrole.permission_search=per_search
+                    createrole.permission_master=per_master
+                    db.session.add(createrole)
+                    db.session.commit()
+                except Exception as e:
+                    print(e)
+                    flash('权限更改操作失败！')
+                    db.session.rollback()
+            else:
+                return redirect(url_for('logout'))
+    return redirect(url_for('settingadmin',user_name=userID))
+
+#创建角色页面
+@app.route('/addroleadmin', methods=['GET', 'POST'])
+def addroleadmin():
+    if request.method == 'POST':
+        rolename = request.form.get('rolename')
+        per_forecast = request.form.get('permission_forecast')
+        per_search = request.form.get('permission_search')
+        per_master = request.form.get('permission_master')
+
+        if 'True' in per_forecast:
+            per_forecast=True
+        else:
+            per_forecast=False
+        if 'True' in per_search:
+            per_search=True
+        else:
+            per_search=False
+        if 'True' in per_master:
+            per_master=True
+        else:
+            per_master=False
+
+        # 如果没有登录，就返回登录页
+        if "username" not in session:
+            return redirect(url_for('login'))
+        # 如果登录，就读取cookie并前往页面
+        else:
+            userID = session.get('username')
+            user = User.query.filter(User.name == userID).first()
+            role = Role.query.filter(Role.id == user.role_id).first()
+            createrole = Role.query.filter(Role.name == rolename).first()
+            if role.permission_master:
+                #用户不存在
+                if not createrole:
+                    try:
+                        #将用户添加到数据库
+                        createrole = Role(name=rolename, permission_forecast=per_forecast, permission_search=per_search,
+                                    permission_master=per_master)
+                        db.session.add(createrole)
+                        db.session.commit()
+                    except Exception as e:
+                        print(e)
+                        flash('角色创建操作失败！')
+                        db.session.rollback()
+                else:
+                    flash('同样的角色名存在！')
+            else:
+                return redirect(url_for('logout'))
+    return redirect(url_for('settingadmin',user_name=userID))
+
+#创建角色页面
+@app.route('/deleteroleadmin/<rolename>', methods=['GET', 'POST'])
+def deleteroleadmin(rolename):
+    # 如果没有登录，就返回登录页
+    if "username" not in session:
+        return redirect(url_for('login'))
+    # 如果登录，就读取cookie并前往页面
+    else:
+        userID = session.get('username')
+        user = User.query.filter(User.name == userID).first()
+        role = Role.query.filter(Role.id == user.role_id).first()
+        createrole = Role.query.filter(Role.name == rolename).first()
+        if role.permission_master:
+            #角色存在
+            if createrole:
+                try:
+                    db.session.delete(createrole)
+                    db.session.commit()
+                except Exception as e:
+                    print(e)
+                    flash('角色删除操作失败！')
+                    db.session.rollback()
+            else:
+                flash('角色不存在！')
+        else:
+            return redirect(url_for('logout'))
     return redirect(url_for('settingadmin',user_name=userID))
 
 #管理员页面
@@ -390,7 +518,7 @@ def deleteuseruser(change_user):
                 except Exception as e:
                     print(e)
                     db.session.rollback()
-            return redirect(url_for('settinguser',user_name=userID))
+            return redirect(url_for('logout'))
         else:
             return redirect(url_for('logout'))
 
