@@ -3,44 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
 <link  rel="stylesheet"  href="./static/font-awesome-4.7.0/css/font-awesome.css">
 
 </head>
 <style>
-#header {
-    background-color:black;
-    color:white;
-    text-align:left;
+body{
+   background-image:url(../static/images/background.jpg);
+    background-size: 100% auto;
+}
 
+#header {
+     background: #00000060;
+    color:white;
+
+    text-align:center;
     padding:5px;
 }
 #left {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:570px;
-    width:100px;
+    height:40px;
+    width:1050px;
     float:left;
     padding:5px;
+        color:white;
+text-align:right;
+
 }
 #body {
-       margin-top: 20px;
+background-image:url(../static/images/hhh.jpg);
+    background-size: 100% auto;
+
+       margin-top: 0px;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    width:800px;
+    width:auto;
     float:left;
     padding:10px;
     text-align: center;
 }
-.weather {
-    height:100px;
-    width:950px;
-    background: #eeeeee;
-    margin-top: 20px;
-
-}
 #bottom {
-    background-color:black;
+     background: #00000060;
     color:white;
     clear:both;
     text-align:center;
@@ -49,24 +50,33 @@
 </style>
 </head>
 <body>
-
 <div id="header">
-<h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp欢迎来到管理员系统</h1>
+<h1>管理员系统</h1>
 </div>
 
 <div id="left">
-你好，{{ user_name }}<br><br><br><br>
-    <a href="{{ url_for('prediction') }}"><button type="button">返回网页</button></a>  <br> <br>
-    <a href="{{ url_for('logout') }}"><button type="button">退出登录</button></a>
+欢迎登录, &nbsp{{ user_name }}
+     <a href="{{ url_for('prediction') }}"><button type="button"style=" margin-left: 20px;
+       width: 90px;
+       color: white;
+       height: 30px;
+       border: 0px;
+       background: #ffffff90;
+       background-image: linear-gradient(120deg, #db3125 0%, #578bc3 100%);
+       border-radius: 15px;">返回网页</button></a>
+    <a href="{{ url_for('logout') }}"><button type="button"style=" margin-left: 20px;
+       width: 90px;
+       color: white;
+       height: 30px;
+       border: 0px;
+       background: #ffffff90;
+       background-image: linear-gradient(120deg, #db3125 0%, #578bc3 100%);
+       border-radius: 15px;">退出登录</button></a>
+
 </div>
 
 <div id="body">
-
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
 <HEAD>
-<TITLE>Untitled Page</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=utf-8">
 <STYLE type=text/css>
 {
 	FONT-SIZE: 12px
@@ -75,22 +85,21 @@
 	BORDER-RIGHT: #bad6ec 1px; BORDER-TOP: #bad6ec 1px; BORDER-LEFT: #bad6ec 1px; COLOR: #566984; BORDER-BOTTOM: #bad6ec 1px; FONT-FAMILY: Courier New
 }
 .gridViewHeader {
-	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BACKGROUND-IMAGE: url(../images/bg_th.gif); BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 27px; BORDER-BOTTOM: #bad6ec 1px solid
+	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid;  BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 27px; BORDER-BOTTOM: #bad6ec 1px solid
 }
 .gridViewItem {
 	BORDER-RIGHT: #bad6ec 1px solid; BORDER-TOP: #bad6ec 1px solid; BORDER-LEFT: #bad6ec 1px solid; LINE-HEIGHT: 32px; BORDER-BOTTOM: #bad6ec 1px solid; TEXT-ALIGN: center
 }
 .cmdField {
-	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(../images/bg_rectbtn.png); OVERFLOW: hidden; BORDER-LEFT: 0px; WIDTH: 67px; COLOR: #364c6d; LINE-HEIGHT: 27px; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 27px; BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px;  OVERFLOW: hidden; BORDER-LEFT: 0px; WIDTH: 67px; COLOR: #364c6d; LINE-HEIGHT: 27px; BORDER-BOTTOM: 0px;  HEIGHT: 27px; BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
 }
 .buttonBlue {
-	BORDER-RIGHT: 0px; BORDER-TOP: 0px; BACKGROUND-IMAGE: url(../images/bg_button_blue.gif); BORDER-LEFT: 0px; WIDTH: 78px; COLOR: white; BORDER-BOTTOM: 0px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 21px
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px;  BORDER-LEFT: 0px; WIDTH: 78px; COLOR: white; BORDER-BOTTOM: 0px;  HEIGHT: 21px
 }
 </STYLE>
-<META content="MSHTML 6.00.2900.5848" name=GENERATOR>
 </HEAD>
-<BODY
-style="BACKGROUND-POSITION-Y: -120px; BACKGROUND-IMAGE: url(../images/bg.gif); BACKGROUND-REPEAT: repeat-x">
+<BODY>
+
 <SCRIPT type=text/javascript>
 //<![CDATA[
 var theForm = document.forms['aspnetForm'];
@@ -105,57 +114,50 @@ function __doPostBack(eventTarget, eventArgument) {
     }
 }
 //]]>
-</SCRIPT>
-<SCRIPT src="EmployeeMgr.files/WebResource.axd" type=text/javascript></SCRIPT>
-<SCRIPT src="EmployeeMgr.files/ScriptResource.axd"
-type=text/javascript></SCRIPT>
-<SCRIPT
-src="C:\Documents and Settings\Administrator\桌面\MyOffice 首页.files\EmployeeMgr.files\ScriptResource(1).axd"
+
 type=text/javascript></SCRIPT>
 <DIV>
   <TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0>
     <TBODY>
       <TR
-  style="BACKGROUND-IMAGE: url(../images/bg_header.gif); BACKGROUND-REPEAT: repeat-x"
   height=47>
         <TD width=10><SPAN
-      style="FLOAT: left; BACKGROUND-IMAGE: url(../images/main_hl.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
+      style="FLOAT: left;  WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
         <TD><SPAN
-      style="FLOAT: left; BACKGROUND-IMAGE: url(../images/main_hl2.gif); WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN
-      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; BACKGROUND-IMAGE: url(../images/main_hb.gif); PADDING-BOTTOM: 10px; COLOR: white; PADDING-TOP: 10px; BACKGROUND-REPEAT: repeat-x; HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">员工管理 </SPAN><SPAN
-      style="FLOAT: left; BACKGROUND-IMAGE: url(../images/main_hr.gif); WIDTH: 60px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
+      style="FLOAT: left;  WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left;  PADDING-BOTTOM: 5px; COLOR: white; PADDING-TOP: 10px; FONT-SIZE: 20px;HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">用户管理 </SPAN><SPAN
+      style="FLOAT: left;  WIDTH: 60px; HEIGHT: 47px"></SPAN></TD>
         <TD
-    style="BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(../images/main_rc.gif)"
     width=10></TD>
       </TR>
       <TR>
-        <TD style="BACKGROUND-IMAGE: url(../images/main_ls.gif)">&nbsp;</TD>
+        <TD >&nbsp;</TD>
         <TD
     style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white"
     vAlign=top align=middle>
           <DIV>
             <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView1
-      style="WIDTH: 100%; BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all
+      style=" BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all
       border=1>
               <TBODY>
                 <TR>
                   <TH class=gridViewHeader scope=col>用户ID</TH>
                   <TH class=gridViewHeader scope=col>用户名</TH>
                   <TH class=gridViewHeader scope=col>密码</TH>
-                  <TH class=gridViewHeader scope=col>角色ID</TH>
+                  <TH class=gridViewHeader scope=col>角色</TH>
                   <TH class=gridviewHeader scope=col>更改密码</TH>
                   <TH class=gridviewHeader scope=col>更改权限</TH>
-                  <TH class=gridviewHeader scope=col>删除用户</TH>
+                  <TH class=gridviewHeader scope=col>操作</TH>
                 </TR>
                 {% for user in users %}
                       <TR>
                       <TD class=gridViewItem>{{ user.id }}</TD>
                       <TD class=gridViewItem>{{ user.name }}</TD>
                       <TD class=gridViewItem>{{ user.password }}</TD>
-                      <TD class=gridViewItem>{{ user.role_id }}</TD>
+                      <TD class=gridViewItem>{{ user.role.name }}</TD>
                       <TD class=gridViewItem><form method="post"><input type=text placeholder="新的密码" name="password"><button type="submit" formaction="{{ url_for('changepasswordadmin',change_user=user.name) }}">确定</button></form></TD>
                       <TD class=gridViewItem><form method="post"><input type=text placeholder="新的权限ID" name="roleid"><button type="submit" formaction="{{ url_for('changeroleadmin',change_user=user.name) }}">确定</button></form></TD>
-                      <TD class=gridViewItem><a href="{{ url_for('deleteuseradmin',change_user=user.name) }}"><button type="button">确定</button></a></TD>
+                      <TD class=gridViewItem><a href="{{ url_for('deleteuseradmin',change_user=user.name) }}"><button type="button">删除</button></a></TD>
                     </TR>
                 {% endfor %}
                       <TR>
@@ -172,32 +174,155 @@ type=text/javascript></SCRIPT>
             </TABLE>
           </DIV>
         </TD>
-        <TD style="BACKGROUND-IMAGE: url(../images/main_rs.gif)"></TD>
+        <TD ></TD>
       </TR>
       <TR
-  style="BACKGROUND-IMAGE: url(../images/main_fs.gif); BACKGROUND-REPEAT: repeat-x"
+
   height=10>
-        <TD style="BACKGROUND-IMAGE: url(../images/main_lf.gif)"></TD>
-        <TD style="BACKGROUND-IMAGE: url(../images/main_fs.gif)"></TD>
+        <TD ></TD>
+        <TD ></TD>
         <TD
-style="BACKGROUND-IMAGE: url(../images/main_rf.gif)"></TD>
+></TD>
       </TR>
     </TBODY>
   </TABLE>
 </DIV>
-<SCRIPT type=text/javascript>
+<SCRIPT
+        type=text/javascript></SCRIPT>
+<DIV>
+  <TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0>
+    <TBODY>
+      <TR
+  height=47>
+        <TD width=10><SPAN
+      style="FLOAT: left;  WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN></TD>
+        <TD><SPAN
+      style="FLOAT: left;  WIDTH: 15px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px"></SPAN><SPAN
+      style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left;  PADDING-BOTTOM: 5px; COLOR: white; PADDING-TOP: 10px; FONT-SIZE: 20px;HEIGHT: 47px; TEXT-ALIGN: center; 0px: ">角色管理 </SPAN><SPAN
+      style="FLOAT: left;  WIDTH: 60px; HEIGHT: 47px"></SPAN></TD>
+        <TD
+    width=10></TD>
+      </TR>
+      <TR>
+        <TD >&nbsp;</TD>
+        <TD
+    style="PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; COLOR: #566984; PADDING-TOP: 10px; BACKGROUND-COLOR: white"
+    vAlign=top align=middle>
+          <DIV>
+            <TABLE class=gridView id=ctl00_ContentPlaceHolder2_GridView2
+      style=" BORDER-COLLAPSE: collapse" cellSpacing=0 rules=all
+      border=1>
+              <TBODY>
+                <TR>
+                  <TH class=gridViewHeader scope=col>角色ID</TH>
+                  <TH class=gridViewHeader scope=col>角色名</TH>
+                  <TH class=gridViewHeader scope=col>查看权限</TH>
+                  <TH class=gridViewHeader scope=col>预测权限</TH>
+                  <TH class=gridviewHeader scope=col>管理权限</TH>
+                  <TH class=gridviewHeader scope=col>操作</TH>
+                </TR>
+                {% for role in roles %}
+                <form method="post">
+                      <TR>
+                      <TD class=gridViewItem>{{ role.id }}</TD>
+                      <TD class=gridViewItem>{{ role.name }}</TD>
+                      <TD class=gridViewItem>{{ role.permission_forecast }}
+                          <select name="permission_forecast">
+                            {% if role.permission_forecast %}
+                                <option value=True>开启</option>
+                                <option value=False>关闭</option>
+                            {% else %}
+                                <option value=False>关闭</option>
+                                <option value=True>开启</option>
+                            {% endif %}
+                          </select>
+                      </TD>
+                      <TD class=gridViewItem>{{ role.permission_search }}
+                      <select name="permission_search">
+                            {% if role.permission_search %}
+                                <option value=True>开启</option>
+                                <option value=False>关闭</option>
+                            {% else %}
+                                <option value=False>关闭</option>
+                                <option value=True>开启</option>
+                            {% endif %}
+                        </select>
+                      </TD>
+                      <TD class=gridViewItem>{{ role.permission_master }}
+                      <select name="permission_master">
+                            {% if role.permission_master %}
+                                <option value=True>开启</option>
+                                <option value=False>关闭</option>
+                            {% else %}
+                                <option value=False>关闭</option>
+                                <option value=True>开启</option>
+                            {% endif %}
+                        </select>
+                      </TD>
+                      <TD class=gridViewItem>
+                          <button type="submit" formaction="{{ url_for('changepermissionadmin', rolename=role.name) }}">提交</button>
+                          <button type="submit" formaction="{{ url_for('deleteroleadmin', rolename=role.name) }}">删除</button>
+                      </TD>
+                            </TR>
+                </form>
+                {% endfor %}
+                      <TR>
+                      <form method="post">
+                      <TD class=gridViewItem>？？？</TD>
+                      <TD class=gridViewItem><input type=text placeholder="新的角色名" name="rolename"></TD>
+                      <TD class=gridViewItem>
+                          <select name="permission_forecast">
+                            <option value=True>开启</option>
+                            <option value=False>关闭</option>
+                          </select>
+                      </TD>
+                     <TD class=gridViewItem>
+                          <select name="permission_search">
+                            <option value=True>开启</option>
+                            <option value=False>关闭</option>
+                          </select>
+                      </TD>
+                     <TD class=gridViewItem>
+                          <select name="permission_master">
+                            <option value=True>开启</option>
+                            <option value=False>关闭</option>
+                          </select>
+                      </TD>
+                      <TD class=gridViewItem><button type="submit" formaction="{{ url_for('addroleadmin') }}">创建角色</button></TD>
+                      <TD class=gridViewItem>{% for foo in get_flashed_messages() %} {{ foo }} {% endfor %}</TD>
+                      </form>
+                    </TR>
+              </TBODY>
+            </TABLE>
+          </DIV>
+        </TD>
+        <TD ></TD>
+      </TR>
+      <TR
+
+  height=10>
+        <TD ></TD>
+        <TD ></TD>
+        <TD
+></TD>
+      </TR>
+    </TBODY>
+  </TABLE>
+</DIV>
+<SCRIPT
+        type=text/javascript>
 //<![CDATA[
 Sys.Application.initialize();
 //]]>
 </SCRIPT>
 </BODY>
-</HTML>
+
 
 
 </div>
+
 <div id="bottom">
 copyright
 </div>
-
 </body>
 </html>
