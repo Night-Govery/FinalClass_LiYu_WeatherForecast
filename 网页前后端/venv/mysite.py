@@ -556,8 +556,8 @@ def init():
     db.create_all()
     #创建权限表
     role1 = Role(name='管理员',permission_forecast=True,permission_search=True,permission_master=True)
-    role2 = Role(name='普通用户',permission_forecast=True,permission_search=True,permission_master=False)
-    role3 = Role(name='VIP用户', permission_forecast=True,permission_search=False,permission_master=False)
+    role2 = Role(name='VIP用户',permission_forecast=True,permission_search=True,permission_master=False)
+    role3 = Role(name='普通用户', permission_forecast=True,permission_search=False,permission_master=False)
     db.session.add(role1)
     db.session.add(role2)
     db.session.add(role3)
